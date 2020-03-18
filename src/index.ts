@@ -19,6 +19,7 @@ export default async function createAuth0Client(options: Auth0ClientOptions) {
     return auth0;
   }
   try {
+    console.log('Hit!');
     await auth0.getTokenSilently({
       audience: options.audience,
       scope: options.scope,
