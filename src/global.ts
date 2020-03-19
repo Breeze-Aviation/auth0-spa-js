@@ -95,6 +95,10 @@ interface Auth0ClientOptions extends BaseLoginOptions {
    * Defaults to 60s.
    */
   authorizeTimeoutInSeconds?: number;
+  /**
+   * Do not silently get a new token, even if client is NOT authenticated.
+   */
+  skipGetToken?: boolean;
 }
 
 /**

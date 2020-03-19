@@ -15,11 +15,10 @@ import './global';
 export default async function createAuth0Client(options: Auth0ClientOptions) {
   const auth0 = new Auth0Client(options);
 
-  if (!ClientStorage.get('auth0.is.authenticated')) {
+  if (!ClientStorage.get('auth0.is.authenticated') || options.skipGetToken) {
     return auth0;
   }
   try {
-    console.log('Hit!');
     await auth0.getTokenSilently({
       audience: options.audience,
       scope: options.scope,
